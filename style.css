@@ -8,21 +8,26 @@ body, html {
 	font-family: Roboto;
 }
 
+header {
+	height: 111px;
+	width: 100%;
+}
+
 .container {
 	margin: 0 auto;
-	width: 1400px;
+	max-width: 1400px;
 }
 
 .nav__menu {
 	display: flex;
 	justify-content: space-between;
-	padding: 25px;
 }
 
 .nav__name {
 	display: flex;
 	flex-direction: column;
 	width: 190px;
+	justify-content: center;
 }
 
 .block__logo {
@@ -95,12 +100,21 @@ body, html {
 }
 
 .nav__telephone {
-	margin-left: 60px;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	width: 200px;
+	display: grid;
+	grid-template: 92px / minmax(90px,auto) minmax(80px,auto);
+	align-items: center;
+	justify-items: flex-end;
+	margin-left: 20px;
+}
 
+.nav__telephone__block {
+	grid-area: 1 / 1 / 3 / 3;
+	align-items: center;
+}
+
+.mobile__icons {
+	grid-area: 1 / 1 / 3 / 3;
+	align-items: center;
 }
 
 .nav__number {
@@ -122,15 +136,35 @@ body, html {
 	text-decoration-line: underline;
 }
 
-@media screen and (max-width: 1440px) {
+.mobile__icons  {
+	visibility: hidden;
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1001px) {
 	.container {
-		width: 1340px;
+		width: 1250px;
+	}
+
+	.nav__number {
+		font-size: 20px;
+	}
+
+	.nav__telephone a {
+		font-size: 14px;
+	}
+
+	.nav__menu {
+		padding: 0 15px 15px 15px;
 	}
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) and (min-width: 769px) {
+	.header {
+		height: 91px;
+	}
+	
 	.container {
-		width: 800px;
+		max-width: 990px;
 	}
 
 	.nav__name img {
@@ -140,6 +174,7 @@ body, html {
 
 	.nav__text {
 		font-size: 29px;
+		letter-spacing: 2px;
 	}
 
 	.nav__name {
@@ -157,13 +192,31 @@ body, html {
 	}
 
 	.nav__menu {
-		padding: 15px;
+		padding: 0 15px 15px 15px;
+		display: flex;
 	}
-
 
 	.nav__item {
 		font-size: 16px;
 		line-height: 19px;
+		margin-right: 46px;
+	}
+
+	.nav__items {
+		width: 391px;
+		margin-left: 60px;
+	}
+
+	.nav__item:last-child {
+		margin-right: 0;
+	}
+
+	.nav__images {
+		margin-left: 80px;
+		display: flex;
+		width: 96px;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	.nav__images img {
@@ -171,21 +224,192 @@ body, html {
 		height: 22px;
 	}
 
-	.nav__images {
-		margin-left: 80px;
-		width: 63px;
-	}
-
 	.nav__telephone a {
-		font-size: 14px;
+		font-size: 12.5px;
 		line-height: 16px;
 	}
 
+	.nav__telephone {
+		width: 183px;
+	}
+
 	.nav__number {
-		font-size: 22px;
+		font-size: 18px;
 		line-height: 26px;
 	}
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+	.container {
+		width: none;
+	}
+
+	.nav__items, .nav__images, .nav__number__text, .nav__number, .mobile__icons__tel, .mobile__icons__tel2 {
+		visibility: hidden;
+    	display: none;
+	}
+
+	.nav__name {
+		width: 135px;
+	}
+
+	.nav__text {
+		font-size: 28px;
+	}
+
+	.block__logo {
+		justify-content: space-between;
+	}
+
+	.block__logo img {
+		width: 32px;
+		height: 19px;
+	}
+
+	.nav__description {
+		font-size: 10px;
+		letter-spacing: 2.5px;
+	}
+
+	.mobile__icons {
+		visibility: inherit;
+		display: flex;
+		justify-content: space-between;
+		width: 230px;
+		align-items: center;
+	}
+
+	.mobile__icons__burger {
+		height: 25px;
+		width: 19px;
+	}
+
+	.mobile__icons__burger:hover {
+		cursor: pointer;
+	}
+
+	.nav__menu {
+		padding: 0 20px 15px 20px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.nav__items, .nav__images, .nav__telephone__block, .one__number {
+		visibility: hidden;
+    	display: none;
+	}
+
+	.container {
+		width: none;
+		padding: 0 10px;
+	}
+
+	.nav__name {
+		width: 135px;
+	}
+
+	.nav__text {
+		font-size: 28px;
+	}
+
+	.block__logo {
+		justify-content: space-between;
+	}
+
+	.block__logo img {
+		width: 32px;
+		height: 19px;
+	}
+
+	.nav__description {
+		font-size: 10px;
+		letter-spacing: 2.5px;
+	}
+
+	.mobile__icons {
+		visibility: inherit;
+		display: flex;
+		justify-content: space-between;
+		width: 75px;
+		align-items: center;
+	}
+
+	.mobile__icons__tel {
+		height: 25px;
+		width: 25px;
+	}
+
+	.mobile__icons__burger {
+		height: 25px;
+		width: 19px;
+
+	}
+
+	.mobile__icons__tel:hover, .mobile__icons__burger:hover {
+		cursor: pointer;
+	}
+
+	.nav__menu {
+		padding: 0 10px 10px 10px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.nav__items, .nav__images, .nav__telephone__block, .one__number {
+		visibility: hidden;
+    	display: none;
+	}
+
+	.container {
+		width: 280px;
+	}
+
+	.nav__name {
+		width: 120px;
+	}
+
+	.nav__text {
+		font-size: 25px;
+	}
+
+	.block__logo img {
+		width: 26px;
+		height: 16px;
+	}
+
+	.nav__description {
+		font-size: 8px;
+		letter-spacing: 3px;
+	}
+
+	.mobile__icons__burger, .mobile__icons__tel {
+		visibility: inherit;
+	} 
 	
+	.mobile__icons {
+		display: flex;
+		justify-content: space-between;
+		width: 75px;
+		align-items: center;
+	}
+
+	.mobile__icons__tel {
+		height: 25px;
+		width: 25px;
+	}
+
+	.mobile__icons__burger {
+		height: 25px;
+		width: 19px;
+	}
+
+	.mobile__icons__tel:hover, .mobile__icons__burger:hover {
+		cursor: pointer;
+	}
+
+	.nav__menu {
+		padding: 0 0px 10px 0px;
+	}
 }
 
 
